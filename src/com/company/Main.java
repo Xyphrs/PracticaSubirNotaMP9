@@ -16,7 +16,5 @@ public class Main {
         persona3.start();
         persona4.start();
         persona5.start();
-
-
     }
 }

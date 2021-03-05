@@ -22,7 +22,7 @@ public class Persona extends Thread {
 
     private void ocupar() {
         try {
-            bany.ocupado(this.genero);
+            bany.ocupado(genero);
             System.out.println(getName() + " entra |");
         } catch (Exception e) {
             e.printStackTrace();
