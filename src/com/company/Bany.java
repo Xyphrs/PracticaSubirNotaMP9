@@ -20,19 +20,19 @@ public class Bany {
 
     public synchronized void ocupado(String genero) {
         try {
-            while (estat == estatBany.OCUPADO && capacidad >= 3) wait();
+            if (capacidad >= 3 && estat == estatBany.OCUPADO) wait();
             generoOcupado = genero;
             capacidad++;
             estat = estatBany.OCUPADO;
+            Thread.sleep((long) (Math.random()*1000)+500);
             notifyAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public synchronized void libre() throws InterruptedException {
+    public synchronized void libre() {
         capacidad--;
-        Thread.sleep(2000);
         estat = estatBany.LIBRE;
         notifyAll();
     }

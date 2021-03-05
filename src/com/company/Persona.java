@@ -12,8 +12,9 @@ public class Persona extends Thread {
 
     private void dejarlibre() {
         try {
-            System.out.println(getName() + " sale -");
             bany.libre();
+            System.out.println(getName() + " sale -");
+            Thread.sleep((long) (Math.random()*1000)+500);
         } catch (Exception e) {
             e.printStackTrace();
         }
