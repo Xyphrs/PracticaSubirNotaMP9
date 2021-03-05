@@ -20,7 +20,7 @@ public class Bany {
 
     public synchronized void ocupado(String genero) {
         try {
-            if (capacidad >= 3 && estat == estatBany.OCUPADO) wait();
+            while (capacidad >= 3 && estat == estatBany.OCUPADO) wait();
             generoOcupado = genero;
             capacidad++;
             estat = estatBany.OCUPADO;
